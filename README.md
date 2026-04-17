@@ -1,2 +1,2 @@
 # CodeVault
-This is the Full stack Version control system
+This is the Full stack Distributed Version control system
