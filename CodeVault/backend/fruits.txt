@@ -1,0 +1,2 @@
+Hello from fruits.txt file!!
+This is the fruits.txt file!!!

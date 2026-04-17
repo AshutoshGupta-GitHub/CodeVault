@@ -1,0 +1,105 @@
+/* navbar.css */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px; /* Space on left and right */
+  border-bottom: 1px solid #30363d;
+  background-color: #161b22;
+  width: 100%;
+  box-sizing: border-box; /* Crucial for full width */
+}
+
+nav img {
+  height: 40px;
+  border-radius: 50%;
+}
+
+nav div {
+  display: flex;
+  align-items: center;
+}
+
+nav h3 {
+  margin-left: 15px;
+  color: white;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+nav p {
+  margin-left: 30px;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+}
+
+nav h3:hover,
+nav p:hover {
+  color: #58a6ff;
+  text-decoration: none;
+}
+
+
+
+/* Styling for Search bar for search the other user account */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-search-wrapper {
+  margin-right: 10px;
+}
+
+.nav-search-input {
+  background-color: #0d1117;
+  border: 1px solid #30363d;
+  color: white;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  width: 180px;
+  transition: width 0.3s ease;
+}
+
+.nav-search-input:focus {
+  outline: none;
+  border-color: #58a6ff;
+  width: 240px; /* Expands slightly when clicking */
+}
+
+
+
+/* nav {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 10px;
+  border-bottom: 2px solid white;
+  width: 100%;
+}
+
+nav img {
+  height: 50px;
+  border-radius: 100%;
+}
+nav div {
+  display: flex;
+}
+
+nav h3 {
+  margin-left: 15px;
+  color: white;
+}
+
+nav p {
+  margin-left: 50px;
+  font-weight: bold;
+  color: white;
+}
+
+nav h3:hover,
+nav p:hover {
+  text-decoration: underline;
+} */
