@@ -1,0 +1,274 @@
+.dashboard-wrapper {
+  background-color: #0d1117;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 280px 1fr 300px; /* Precise 3-column layout */
+  gap: 40px;
+  padding: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Common Header Style */
+.section-header h4 {
+  color: #f0f6fc;
+  border-bottom: 1px solid #30363d;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+}
+
+/* Left Sidebar */
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.suggestion-item:hover { background: #161b22; border-radius: 6px; }
+.suggested-name { color: #58a6ff; font-weight: 500; font-size: 0.9rem; margin: 0; }
+
+/* Main Feed */
+.feed-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.feed-header h2 { color: white; margin: 0; }
+.dashboard-search-input {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  width: 250px;
+}
+
+/* Repo Cards */
+.pro-repo-card {
+  border-bottom: 1px solid #30363d;
+  padding: 24px 0;
+  animation: slideUp 0.4s ease-out;
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card-header-row { display: flex; align-items: center; gap: 10px; }
+.repo-title { color: #58a6ff; font-size: 1.25rem; margin: 0; cursor: pointer; }
+.repo-title:hover { text-decoration: underline; }
+
+.visibility-badge {
+  font-size: 0.75rem;
+  color: #8b949e;
+  border: 1px solid #30363d;
+  padding: 2px 10px;
+  border-radius: 20px;
+}
+
+.repo-description {
+  color: #8b949e;
+  font-size: 0.9rem;
+  margin: 10px 0;
+  max-width: 90%;
+}
+
+.card-meta { display: flex; gap: 20px; font-size: 0.8rem; color: #8b949e; }
+.dot { height: 10px; width: 10px; background: #f1e05a; border-radius: 50%; display: inline-block; margin-right: 5px; }
+
+/* Right Sidebar */
+.event-pill {
+  background: #161b22;
+  border: 1px solid #30363d;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  display: flex;
+  gap: 15px;
+}
+.event-pill .date { color: #f85149; font-weight: bold; font-size: 0.8rem; }
+.event-pill p { color: white; margin: 0; font-size: 0.9rem; }
+
+.promo-box {
+  background: rgba(56, 139, 253, 0.1);
+  border: 1px solid #388bfd;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+.promo-box h5 { color: #58a6ff; margin: 0 0 5px 0; }
+.promo-box p { color: #8b949e; font-size: 0.8rem; margin: 0; }
+
+/* New css for suggested repository section */
+
+/* Suggested Section Improvements */
+.suggestion-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 10px;
+    border-bottom: 1px solid #30363d;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.suggestion-item:hover {
+    background-color: #161b22;
+}
+
+.suggestion-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.repo-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.suggested-name {
+    margin: 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #58a6ff; /* GitHub-style blue */
+}
+
+.suggested-owner {
+    font-size: 0.75rem;
+    color: #8b949e; /* Muted gray text */
+    margin-top: 2px;
+}
+
+.repo-icon {
+    font-size: 1.1rem;
+    margin-top: 2px;
+}
+
+/* Scrollbar for the left aside if list is long */
+.left-aside {
+    overflow-y: auto;
+    max-height: calc(100vh - 80px);
+}
+
+
+/* If you show all repositories, the sidebar will get very long. We need to make it scrollable so it doesn't break your layout */
+
+.left-aside {
+    height: 100vh; /* Takes full height */
+    position: sticky;
+    top: 0;
+    overflow-y: auto; /* Enables scrolling for long lists */
+    padding-bottom: 20px;
+}
+
+/* Optional: Make the scrollbar look cleaner */
+.left-aside::-webkit-scrollbar {
+    width: 5px;
+}
+.left-aside::-webkit-scrollbar-thumb {
+    background: #30363d;
+    border-radius: 10px;
+}
+
+
+/* Styling for Help section */
+
+.help-section-card {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.help-step {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Vertical line connecting steps */
+.help-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 30px;
+    bottom: -15px;
+    width: 2px;
+    background-color: #30363d;
+}
+
+.step-badge {
+    background-color: #238636;
+    color: white;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    flex-shrink: 0;
+    z-index: 1;
+}
+
+.step-text {
+    color: #e6edf3;
+    font-size: 0.85rem;
+}
+
+.step-text span {
+    color: #58a6ff;
+    font-weight: bold;
+}
+
+.step-text code {
+    display: block;
+    background-color: #0d1117;
+    padding: 6px 10px;
+    margin: 8px 0;
+    border-radius: 4px;
+    color: #79c0ff;
+    font-family: monospace;
+    border: 1px solid #30363d;
+}
+
+.step-text small {
+    color: #8b949e;
+    font-style: italic;
+}
+
+
+
+
+
+/* Previous code */
+
+/* #dashboard {
+    display: flex;
+    width: 1080px;
+    justify-content: space-between;
+} */
+
+
+/* Css code given by Ginemi it's not workign */
+
+/* Add this to your Dashboard card style */
+/* .repo-card {
+  transition: all 0.3s ease;
+  border: 1px solid #30363d;
+}
+
+.repo-card:hover {
+  transform: translateY(-5px);
+  border-color: #58a6ff;        
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+} */

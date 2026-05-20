@@ -1,0 +1,334 @@
+.repo-view-wrapper {
+  background-color: #0d1117;
+  min-height: 100vh;
+  color: #c9d1d9;
+}
+
+.repo-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Header Styling */
+.repo-view-header {
+  margin-bottom: 24px;
+}
+
+.repo-path {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.repo-icon {
+  font-size: 1.5rem;
+}
+
+.repo-name-display {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #58a6ff;
+}
+
+.visibility-label {
+  border: 1px solid #30363d;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  color: #8b949e;
+}
+
+/* Explorer Table Styling */
+.file-explorer-card {
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  background-color: #161b22;
+  overflow: hidden;
+}
+
+.explorer-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  padding: 12px 16px;
+  background-color: #21262d;
+  border-bottom: 1px solid #30363d;
+  font-weight: 600;
+  color: #8b949e;
+  font-size: 0.85rem;
+}
+
+.file-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  padding: 12px 16px;
+  border-bottom: 1px solid #30363d;
+  transition: background-color 0.2s;
+  align-items: center;
+}
+
+.file-row:last-child {
+  border-bottom: none;
+}
+
+.file-row:hover {
+  background-color: #1c2128;
+}
+
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.file-icon {
+  color: #8b949e;
+}
+
+.file-text {
+  color: #58a6ff;
+  cursor: pointer;
+}
+
+.file-text:hover {
+  text-decoration: underline;
+}
+
+.col-date, .col-size {
+  font-size: 0.85rem;
+  color: #8b949e;
+}
+
+/* States */
+.loading-state, .empty-repo-state {
+  padding: 40px;
+  text-align: center;
+  color: #8b949e;
+}
+
+.empty-repo-state code {
+  display: block;
+  margin-top: 10px;
+  background: #0d1117;
+  padding: 8px;
+  border-radius: 4px;
+  color: #ff7b72;
+}
+
+/* New styling for modal and fetching overlay */
+
+
+
+/* Styling for the clickable file names */
+.clickable-file {
+  cursor: pointer;
+  color: #58a6ff;
+  font-weight: 500;
+}
+
+.clickable-file:hover {
+  text-decoration: underline;
+}
+
+/* Modal Overlay (The Dark Background) */
+
+.file-modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+/* Modal Box */
+.file-modal-content {
+  background-color: #0d1117;
+  width: 85%;
+  max-width: 900px;
+  max-height: 85vh;
+  border: 1px solid #30363d;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #161b22;
+  border-bottom: 1px solid #30363d;
+  border-radius: 10px 10px 0 0;
+}
+
+.modal-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-title h3 {
+  margin: 0;
+  font-size: 14px;
+  color: #c9d1d9;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #8b949e;
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.close-btn:hover {
+  color: #f0f6fc;
+}
+
+.modal-body {
+  padding: 20px;
+  overflow-y: auto;
+  text-align: left;
+}
+
+.file-code-block {
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #e6edf3;
+}
+
+/* Fetching Loader */
+.fetching-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(13, 17, 23, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2100;
+}
+
+.loader-text {
+  color: #58a6ff;
+  font-weight: 600;
+  background: #161b22;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px solid #30363d;
+}
+
+
+/* Add these styles to your repoView.css to make the commands look like a real terminal box, similar to the GitHub "Getting Started" page. */
+
+
+.empty-repo-state {
+    text-align: left;
+    padding: 40px;
+    background: #0d1117;
+    border: 1px dashed #30363d;
+    border-radius: 6px;
+    color: #c9d1d9;
+}
+
+.setup-guide h3 {
+    font-size: 1.2rem;
+    color: #58a6ff;
+    margin-bottom: 10px;
+}
+
+.command-box {
+    background: #161b22;
+    padding: 20px;
+    border-radius: 6px;
+    border: 1px solid #30363d;
+    margin-top: 20px;
+}
+
+.command-box code {
+    display: block;
+    font-family: 'Courier New', Courier, monospace;
+    color: #79c0ff;
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+.command-comment {
+    color: #8b949e;
+    font-size: 0.85rem;
+    margin: 15px 0 5px 0;
+}
+
+.highlight-command {
+    color: #ff7b72 !important; /* Makes the final push command stand out */
+    font-weight: bold;
+}
+
+
+/* styling for ipload file option */
+
+/* Dropdown Container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Add File Button */
+.add-file-btn {
+  background-color: #21262d;
+  color: #c9d1d9;
+  border: 1px solid #30363d;
+  padding: 5px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.add-file-btn:hover {
+  background-color: #30363d;
+  border-color: #8b949e;
+}
+
+/* Hidden Dropdown Menu */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #161b22;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+  z-index: 10;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  margin-top: 4px;
+}
+
+/* Show menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Menu Items (Upload files link) */
+.dropdown-item {
+  color: #c9d1d9;
+  padding: 10px 15px;
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: #1f6feb;
+  color: #ffffff;
+}
