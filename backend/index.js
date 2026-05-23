@@ -89,7 +89,7 @@ function startServer() {
         console.error("Error connecting to MongoDB:", err);
     });
 
-    // --- FIXED: Updated CORS settings for Express routes ---
+    // --- CORS settings for Express routes (Handles everything perfectly) ---
     app.use(
         cors({
             origin: ["https://code-vault-ochre-chi.vercel.app", "http://localhost:5173"],
@@ -99,17 +99,14 @@ function startServer() {
         })
     );
 
-    // Explicitly handle preflight OPTIONS handshakes
-    // To this updated version:
-    app.options("(.*)", cors());
-    // app.options("*", cors());
+    // FIXED: The broken app.options line has been completely removed to prevent Express v5 crashes!
 
     app.use("/", mainRouter);   // Use mainRouter for the root path    
 
     let user = "test";
     const httpServer = http.createServer(app);  // Create HTTP server
     
-    // --- FIXED: Updated CORS settings for Socket.io ---
+    // --- CORS settings for Socket.io ---
     const io = new Server(httpServer, {
         cors: {
             origin: ["https://code-vault-ochre-chi.vercel.app", "http://localhost:5173"],
@@ -139,7 +136,6 @@ function startServer() {
     });
     
 }
-
 // function startServer() {
 
 //     const app = express();
