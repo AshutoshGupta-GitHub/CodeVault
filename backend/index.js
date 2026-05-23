@@ -73,6 +73,7 @@ yargs(hideBin(process.argv))
     .help().argv; // require at least one command;
 
 
+
 function startServer() {
 
     const app = express();
@@ -88,16 +89,30 @@ function startServer() {
         console.error("Error connecting to MongoDB:", err);
     });
 
-    app.use(cors({ origin: "*" }));
+    // --- FIXED: Updated CORS settings for Express routes ---
+    app.use(
+        cors({
+            origin: ["https://code-vault-ochre-chi.vercel.app", "http://localhost:5173"],
+            credentials: true,
+            methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+            allowedHeaders: ["Content-Type", "Authorization"]
+        })
+    );
+
+    // Explicitly handle preflight OPTIONS handshakes
+    app.options("*", cors());
 
     app.use("/", mainRouter);   // Use mainRouter for the root path    
 
     let user = "test";
     const httpServer = http.createServer(app);  // Create HTTP server
+    
+    // --- FIXED: Updated CORS settings for Socket.io ---
     const io = new Server(httpServer, {
         cors: {
-            origin: "*",
-            methods: ["GET", "POST"]
+            origin: ["https://code-vault-ochre-chi.vercel.app", "http://localhost:5173"],
+            methods: ["GET", "POST"],
+            credentials: true
         },
     });
 
@@ -122,4 +137,54 @@ function startServer() {
     });
     
 }
+
+// function startServer() {
+
+//     const app = express();
+//     const port = process.env.PORT || 3000;
+
+//     app.use(bodyParser.json());
+//     app.use(express.json());
+
+//     const mongoURI = process.env.MONGODB_URI;
+//     mongoose.connect(mongoURI).then(() => {
+//         console.log("MongoDB Connected");
+//     }).catch((err) => {
+//         console.error("Error connecting to MongoDB:", err);
+//     });
+
+//     app.use(cors({ origin: "*" }));
+
+//     app.use("/", mainRouter);   // Use mainRouter for the root path    
+
+//     let user = "test";
+//     const httpServer = http.createServer(app);  // Create HTTP server
+//     const io = new Server(httpServer, {
+//         cors: {
+//             origin: "*",
+//             methods: ["GET", "POST"]
+//         },
+//     });
+
+//     io.on("connection", (socket) => {
+//         socket.on("joinRoom", (userID) => {
+//             user = userID;
+//             console.log("===================");
+//             console.log(user);
+//             console.log("===================");
+//             socket.join(userID);
+//         });
+//     }); 
+
+//     const db = mongoose.connection;
+//     db.once("open", () => {
+//         console.log("CRUD operation called");
+//         //CRUD operations 
+//     });
+
+//     httpServer.listen(port, () => {
+//         console.log(`Server is running on port ${port}`);
+//     });
+    
+// }
 

@@ -99,7 +99,7 @@ const Login = () => {
         </div>
         <div className="pass-box">
           <p>
-            New to GitHub? <Link to="/signup">Create an account</Link>
+            New to CodeVault? <Link to="/signup">Create an account</Link>
           </p>
         </div>
       </div>
