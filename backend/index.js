@@ -100,7 +100,9 @@ function startServer() {
     );
 
     // Explicitly handle preflight OPTIONS handshakes
-    app.options("*", cors());
+    // To this updated version:
+    app.options("(.*)", cors());
+    // app.options("*", cors());
 
     app.use("/", mainRouter);   // Use mainRouter for the root path    
 
